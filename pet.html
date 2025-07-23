@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .profile-header { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th { background-color: #f8f9fa; text-align: left; padding: 12px; border: 1px solid #ddd; }
+        td { padding: 10px; border: 1px solid #ddd; }
+        .photo-cell img { max-width: 120px; max-height: 120px; border-radius: 4px; }
+        .highlight { background-color: #f1f8fe; }
+    </style>
+</head>
+<body>
+    <h1 class="profile-header">Animal Profiles</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Breed</th>
+                <th>Sex</th>
+                <th>DOB</th>
+                <th>Height</th>
+                <th>Colour</th>
+                <th>Microchip</th>
+                <th>Breeding</th>
+                <th>Registration</th>
+                <th>Photo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each items}}
+            <tr>
+                <td class="highlight">{{Name}}</td>
+                <td>{{Species}}</td>
+                <td>{{Breed}}</td>
+                <td>{{Sex}}</td>
+                <td>{{DOB}}</td>
+                <td>{{Height}}</td>
+                <td>{{Colour}}</td>
+                <td>{{Microchip}}</td>
+                <td>{{Breeding}}</td>
+                <td>{{Registration}}</td>
+                <td class="photo-cell">
+                    {{#if Photo}}<img src="{{Photo}}">{{else}}-{{/if}}
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>
