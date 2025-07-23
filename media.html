@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table { width:100%; border-collapse:collapse; }
+        th, td { padding:10px; border:1px solid #ddd; text-align:left; }
+        th { background:#f2f2f2; }
+        .media-preview { max-width:150px; max-height:150px; }
+        .video-cell { color:#0066cc; }
+    </style>
+</head>
+<body>
+    <h2>Media Records</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date & Time</th>
+                <th>Image</th>
+                <th>Video</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each items}}
+            <tr>
+                <td>{{Date_Time}}</td>
+                <td>
+                    {{#if Image}}<img src="{{Image}}" class="media-preview">{{else}}No image{{/if}}
+                </td>
+                <td class="video-cell">
+                    {{#if Video}}<a href="{{Video}}">View Video</a>{{else}}-{{/if}}
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>

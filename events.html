@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table { width:100%; border-collapse:collapse; margin-top:15px; }
+        th, td { padding:10px; border:1px solid #ddd; text-align:left; }
+        th { background:#f2f2f2; }
+        .event-image { max-width:120px; max-height:120px; }
+        .notes-cell { max-width:200px; white-space:normal; }
+    </style>
+</head>
+<body>
+    <h2>Event Records</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date & Time</th>
+                <th>Venue</th>
+                <th>Event Name</th>
+                <th>Type</th>
+                <th class="notes-cell">Notes</th>
+                <th>Results</th>
+                <th>Photo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each items}}
+            <tr>
+                <td>{{Date_Time}}</td>
+                <td>{{Venue}}</td>
+                <td>{{Name_of_Event}}</td>
+                <td>{{Type_of_Event}}</td>
+                <td class="notes-cell">{{Notes}}</td>
+                <td>{{#if Results}}{{Results}}{{else}}-{{/if}}</td>
+                <td>{{#if Picture_of_Event}}<img src="{{Picture_of_Event}}" class="event-image">{{else}}-{{/if}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>

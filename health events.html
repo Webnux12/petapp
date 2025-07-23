@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #f8f9fa; }
+        .health-image { max-width: 120px; max-height: 120px; }
+        .file-link { color: #1a73e8; text-decoration: none; }
+        .notes-cell { max-width: 250px; }
+    </style>
+</head>
+<body>
+    <h2>Health Event Records</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date & Time</th>
+                <th>Event</th>
+                <th class="notes-cell">Notes</th>
+                <th>Image</th>
+                <th>Attachment</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each items}}
+            <tr>
+                <td>{{Date_Time}}</td>
+                <td>{{Event}}</td>
+                <td class="notes-cell">{{Notes}}</td>
+                <td>
+                    {{#if Image}}
+                        <img src="{{Image}}" class="health-image">
+                    {{else}}
+                        -
+                    {{/if}}
+                </td>
+                <td>
+                    {{#if File_Attached}}
+                        <a href="{{File_Attached}}" class="file-link">View File</a>
+                    {{else}}
+                        -
+                    {{/if}}
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>

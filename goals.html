@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table { width:100%; border-collapse:collapse; margin-top:15px; }
+        th, td { padding:10px; border:1px solid #ddd; text-align:left; vertical-align:top; }
+        th { background:#f2f2f2; }
+        .goal-image { max-width:100px; max-height:100px; }
+        .steps-cell { white-space:pre-line; max-width:250px; }
+        .status-achieved { color:#28a745; }
+        .status-progress { color:#ffc107; }
+        .status-not-started { color:#dc3545; }
+    </style>
+</head>
+<body>
+    <h2>Goals Tracking</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Goal Name</th>
+                <th>Details</th>
+                <th>Steps</th>
+                <th>Photo</th>
+                <th>Status</th>
+                <th>Date Set</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each items}}
+            <tr>
+                <td>{{Goal_Name}}</td>
+                <td>{{Goal_Details}}</td>
+                <td class="steps-cell">{{Steps_to_Achieve_Goal}}</td>
+                <td>{{#if Picture_of_Goal}}<img src="{{Picture_of_Goal}}" class="goal-image">{{else}}-{{/if}}</td>
+                <td class="{{#if (eq Goal_Achieved 'Achieved')}}status-achieved{{else if (eq Goal_Achieved 'In Progress')}}status-progress{{else}}status-not-started{{/if}}">
+                    {{Goal_Achieved}}
+                </td>
+                <td>{{Date_Time}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>
