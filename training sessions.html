@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #f5f5f5; font-weight: 600; }
+        .duration-cell { text-align: center; }
+        .description-cell { max-width: 300px; }
+        .distraction-low { color: #28a745; }
+        .distraction-medium { color: #ffc107; }
+        .distraction-high { color: #dc3545; }
+    </style>
+</head>
+<body>
+    <h2>Training Session Records</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date & Time</th>
+                <th>Trainer</th>
+                <th class="duration-cell">Duration</th>
+                <th>Venue</th>
+                <th>Distractions</th>
+                <th>Session Type</th>
+                <th class="description-cell">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each items}}
+            <tr>
+                <td>{{Date_Time}}</td>
+                <td>{{Trainer}}</td>
+                <td class="duration-cell">{{Duration_of_Session_in_Minutes}} min</td>
+                <td>{{Venue}}</td>
+                <td class="{{#if (eq Distractions 'None')}}distraction-low{{else if (eq Distractions 'Other pets present')}}distraction-medium{{else}}distraction-high{{/if}}">
+                    {{Distractions}}
+                </td>
+                <td>{{Type_of_Session}}</td>
+                <td class="description-cell">{{Session_Description}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>
