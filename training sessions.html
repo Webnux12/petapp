@@ -2,41 +2,21 @@
 <html>
 <head>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-        th, td {
-            padding: 12px 8px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background-color: #f5f5f5;
-            font-weight: bold;
-        }
-        .duration {
-            text-align: center;
-        }
-        .none { color: green; }
-        .moderate { color: orange; }
-        .high { color: red; }
+        table { width:100%; border-collapse:collapse; }
+        th, td { padding:10px; border:1px solid #ddd; }
+        th { background:#f5f5f5; }
+        .none { color:green; }
+        .moderate { color:orange; }
     </style>
 </head>
 <body>
-    <h2>Training Sessions Report</h2>
     <table>
         <thead>
             <tr>
                 <th>Date</th>
                 <th>Trainer</th>
                 <th>Duration</th>
-                <th>Location</th>
+                <th>Venue</th>
                 <th>Distractions</th>
                 <th>Type</th>
                 <th>Description</th>
@@ -47,7 +27,7 @@
             <tr>
                 <td>{{date}}</td>
                 <td>{{trainer}}</td>
-                <td class="duration">{{duration}} min</td>
+                <td>{{duration}} min</td>
                 <td>{{venue}}</td>
                 <td class="{{distractions}}">{{distractions}}</td>
                 <td>{{type}}</td>
