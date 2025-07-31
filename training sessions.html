@@ -2,18 +2,22 @@
 <html>
 <head>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
-            font-family: Arial, sans-serif;
+            margin-top: 15px;
         }
         th, td {
-            padding: 12px;
-            text-align: left;
+            padding: 12px 8px;
             border: 1px solid #ddd;
+            text-align: left;
         }
         th {
-            background-color: #f8f9fa;
+            background-color: #f5f5f5;
             font-weight: bold;
         }
         .duration {
@@ -25,29 +29,29 @@
     </style>
 </head>
 <body>
-    <h2>Training Sessions</h2>
+    <h2>Training Sessions Report</h2>
     <table>
         <thead>
             <tr>
-                <th>Date & Time</th>
+                <th>Date</th>
                 <th>Trainer</th>
-                <th>Duration (min)</th>
-                <th>Venue</th>
+                <th>Duration</th>
+                <th>Location</th>
                 <th>Distractions</th>
                 <th>Type</th>
                 <th>Description</th>
             </tr>
         </thead>
         <tbody>
-            {{#each items}}
+            {{#each training_sessions}}
             <tr>
-                <td>{{Date_Time}}</td>
-                <td>{{Trainer}}</td>
-                <td class="duration">{{Duration}}</td>
-                <td>{{Venue}}</td>
-                <td class="{{toLowerCase Distractions}}">{{Distractions}}</td>
-                <td>{{Session_Type}}</td>
-                <td>{{Description}}</td>
+                <td>{{date}}</td>
+                <td>{{trainer}}</td>
+                <td class="duration">{{duration}} min</td>
+                <td>{{venue}}</td>
+                <td class="{{distractions}}">{{distractions}}</td>
+                <td>{{type}}</td>
+                <td>{{description}}</td>
             </tr>
             {{/each}}
         </tbody>
