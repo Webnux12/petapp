@@ -2,29 +2,40 @@
 <html>
 <head>
     <style>
-        body { font-family: Arial, sans-serif; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
-        th { background-color: #f5f5f5; font-weight: 600; }
-        .duration-cell { text-align: center; }
-        .description-cell { max-width: 300px; }
-        .distraction-low { color: #28a745; }
-        .distraction-medium { color: #ffc107; }
-        .distraction-high { color: #dc3545; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        .duration {
+            text-align: center;
+        }
+        .none { color: green; }
+        .moderate { color: orange; }
+        .high { color: red; }
     </style>
 </head>
 <body>
-    <h2>Training Session Records</h2>
+    <h2>Training Sessions</h2>
     <table>
         <thead>
             <tr>
                 <th>Date & Time</th>
                 <th>Trainer</th>
-                <th class="duration-cell">Duration</th>
+                <th>Duration (min)</th>
                 <th>Venue</th>
                 <th>Distractions</th>
-                <th>Session Type</th>
-                <th class="description-cell">Description</th>
+                <th>Type</th>
+                <th>Description</th>
             </tr>
         </thead>
         <tbody>
@@ -32,13 +43,11 @@
             <tr>
                 <td>{{Date_Time}}</td>
                 <td>{{Trainer}}</td>
-                <td class="duration-cell">{{Duration_of_Session_in_Minutes}} min</td>
+                <td class="duration">{{Duration}}</td>
                 <td>{{Venue}}</td>
-                <td class="{{#if (eq Distractions 'None')}}distraction-low{{else if (eq Distractions 'Other pets present')}}distraction-medium{{else}}distraction-high{{/if}}">
-                    {{Distractions}}
-                </td>
-                <td>{{Type_of_Session}}</td>
-                <td class="description-cell">{{Session_Description}}</td>
+                <td class="{{toLowerCase Distractions}}">{{Distractions}}</td>
+                <td>{{Session_Type}}</td>
+                <td>{{Description}}</td>
             </tr>
             {{/each}}
         </tbody>
